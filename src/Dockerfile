@@ -5,8 +5,8 @@ FROM python:3.8.1-alpine
 WORKDIR /usr/src/app
 
 # set environment variables
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
 
 # copy requirements file
 COPY ./requirements.txt /usr/src/app/requirements.txt
