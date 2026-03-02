@@ -1,0 +1,1 @@
+This a repo to follow the FASTAPI [tutorial](https://fastapi-tutorial.readthedocs.io/en/latest/).
