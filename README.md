@@ -1,15 +1,23 @@
 This a repo to follow the FASTAPI [tutorial](https://fastapi-tutorial.readthedocs.io/en/latest/).
 
 
-### Rerun - Docker compose
-Most of the times you need to remove old volumes in order the compose to run successfully:
+### Run application 
+
+**Docker compose**
+
+Most of the times you need to remove old volumes in order to run the `docker-compose` successfully:
 
 ```
 docker-compose down --volumes
 docker-compose up -d --build
 ```
 
-### Run tests
+**Create `notes` table in the db:**
+
+`docker-compose exec db psql --username=hello_fastapi --dbname=hello_fastapi_dev`
+
+**Run tests**
+
 `docker-compose exec web pytest .`
 
 ### Pytest fixture
@@ -48,7 +56,7 @@ FastAPI can use `SQLAlchemy` and `Pydantic` through the `SQLModel` package.
 
 Steps:
 
-- create the models (define tables), using `SQLModel` `SQLAlchemy`
+- create the models (define tables), using `SQLModel` and `SQLAlchemy`
 - create an engine (underneath is a `SQLAlchemy` engine) holding the connections to the database
 - create db and its tables
 - create a session dependency

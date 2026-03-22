@@ -9,7 +9,9 @@ services:
     ports:
       - 8002:8000
     environment:
-      - DATABASE_URL=postgresql:/hello_fastapi:hello_fastapi@db/hello_fastapi_dev
+      - DATABASE_URL=postgresql://hello_fastapi:hello_fastapi@db/hello_fastapi_dev
+    depends_on:
+      - db
   db:
     image: postgres:12.1-alpine
     volumes:
