@@ -6,9 +6,6 @@ from sqlalchemy.sql import func
 
 DATABASE_URL = os.getenv("DATABASE_URL")
 
-# SQLAlchemy
-engine = create_engine(DATABASE_URL)
-metadata = MetaData()
 
 # SQLAlchemy
 engine = create_engine(DATABASE_URL)
