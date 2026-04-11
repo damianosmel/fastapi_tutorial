@@ -20,6 +20,9 @@ docker-compose up -d --build
 
 `docker-compose exec web pytest .`
 
+**Debug containerized application**
+`docker-compose logs`
+
 ### Pytest fixture
 A pytest fixture is a function that provides a fixed baseline for tests, ensuring consistent and repeatable results by setting up services, state, or environments. Fixtures are requested by test functions through arguments and can be modular, reusable, and composable, making test writing easier and more organized.
 Resource: [pytest web](https://docs.pytest.org/en/6.2.x/fixture.html)
@@ -62,3 +65,9 @@ Steps:
 - create a session dependency
     A `Session` is what stores the objects in memory and keeps track of any changes needed in the data, then it uses the `engine` to communicate with the database.
     Creating the FastAPI dependency with `yield` will provide a new `Session` for each request. This ensures that we use a single session per request.
+
+### Making API endpoints
+ - create Pydantic model to validate request bodies from client to API
+ - create a file containing services in `src/app/api`, for example for services on the Notes DB table: `src/app/api/notes.py`
+ - create general services (using SQLAlchemy) that can be used from the above file, saved in `src/app/api/crud.py`
+ - add route in `main.py`
