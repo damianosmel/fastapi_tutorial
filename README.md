@@ -16,11 +16,22 @@ docker-compose up -d --build
 
 `docker-compose exec db psql --username=hello_fastapi --dbname=hello_fastapi_dev`
 
+**Write an example note row on the table:**
+```
+curl -X 'POST'   'http://localhost:8002/notes/' \
+-H 'accept: application/json' \
+-H 'Content-Type: application/json' \
+-d '{
+  "title": "Ulysses by James Joyce",
+  "description": "The odyssey of just one day.."
+}'
+```
 **Run tests**
 
 `docker-compose exec web pytest .`
 
 **Debug containerized application**
+
 `docker-compose logs`
 
 ### Pytest fixture
@@ -30,10 +41,10 @@ Resource: [pytest web](https://docs.pytest.org/en/6.2.x/fixture.html)
 ## CRUD Routes
 CRUD stands for Create, Read, Update, and Delete, which are the four basic operations you can perform on resources in an API.
 
- - create -> this operation allows users to add new resources (POST)
- - read -> this operation allows users to retrieve existing resources (GET)
- - update -> this operation modifies an existing resource (in total or partially) (PUT (full update), PATH (partial update))
- - delete -> this operation removes a specified resource (DELETE)
+ - create: this operation allows users to add new resources (POST)
+ - read: this operation allows users to retrieve existing resources (GET)
+ - update: this operation modifies an existing resource (in total or partially) (PUT (full update), PATH (partial update))
+ - delete: this operation removes a specified resource (DELETE)
 
  For example:
 

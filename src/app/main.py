@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from app.api import ping,notes
 from app.db import database, engine, metadata
 import asyncio
+import asyncpg
 from sqlalchemy import exc
 
 app = FastAPI()
@@ -16,6 +17,8 @@ async def startup():
             await asyncio.get_running_loop().run_in_executor(None, metadata.create_all, engine)
             return
         except (exc.OperationalError, ConnectionError):
+            await asyncio.sleep(1)
+        except (exc.OperationalError, ConnectionError, asyncpg.exceptions.CannotConnectNowError):
             await asyncio.sleep(1)
     raise RuntimeError("Could not connect to the database after retries")
 
