@@ -82,3 +82,12 @@ Steps:
  - create a file containing services in `src/app/api`, for example for services on the Notes DB table: `src/app/api/notes.py`
  - create general services (using SQLAlchemy) that can be used from the above file, saved in `src/app/api/crud.py`
  - add route in `main.py`
+
+
+## How to develop a new functionality on the API in TDD:
+
+For example to add the 'get note_id' funtionality:
+
+ - add test of the new functionality (`test_notes.py`)
+ - add the utility function in `app/api/notes.py`
+ - add the actual logic in the respective function in `app/api/crud.py`
